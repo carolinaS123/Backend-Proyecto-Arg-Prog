@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class SPersona implements ISPersona {
+public class SPersona implements ISPersona{
 
-@Autowired
+    @Autowired
     RPersona rPersona;
 
     @Override

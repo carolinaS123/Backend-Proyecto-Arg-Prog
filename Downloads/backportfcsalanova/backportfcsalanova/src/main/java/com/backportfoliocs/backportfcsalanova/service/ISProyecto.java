@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface ISProyecto {
     //metodo para traer todos los proyectos
-    public List<Proyecto> verProyectos();
+    public List<Proyecto> mostrarProyectos();
 
     //metodo para dar de alta un proyecto
     public void crearProyecto(Proyecto proyec);

@@ -15,7 +15,7 @@ public class SExperiencia implements ISExperiencia{
     RExperiencia rExperiencia;
    
     @Override
-    public List<Experiencia> verExperiencias() {
+    public List<Experiencia> mostrarExperiencias() {
         List<Experiencia> listaExperiencias = rExperiencia.findAll();
         return listaExperiencias;
     }

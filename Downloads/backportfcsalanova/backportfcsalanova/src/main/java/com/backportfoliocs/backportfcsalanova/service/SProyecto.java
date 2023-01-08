@@ -15,7 +15,7 @@ public class SProyecto implements ISProyecto {
     RProyecto rProyecto;
 
     @Override
-    public List<Proyecto> verProyectos() {
+    public List<Proyecto> mostrarProyectos() {
         List<Proyecto> listaProyectos = rProyecto.findAll();
         return listaProyectos;
     }

@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +21,7 @@ public class CPersona {
     @Autowired
     private SPersona persoServ;
     
-    /////////////////Para autenticacion///////////////////
+/////////////////Para autenticacion///////////////////
     @PostMapping("/authentication/login")
     public Persona loginPersona(@RequestBody Persona perso){
           return persoServ.loginPersona(perso.getEmail(), perso.getPassword());
@@ -54,14 +56,7 @@ public Persona findPersona( ){
     return persoServ.findPersona((long)1);
 }
 /////////////////  Para editar persona  ///////////////////
-    @PostMapping("/editar/persona")
-    public String editarPersona(@RequestBody Persona perso) {
-        persoServ.crearPersona(perso);
-        return "La persona fue editada correctamente";
-    }
-    /*
-/////////////////  Para editar persona  ///////////////////
-    @PutMapping("/personas/persona/editar/{id}")
+    @PutMapping("/personas/editar/persona{id}")
     public Persona editPersona(@PathVariable Long id,@RequestParam("nombre") String nuevoNombre,@RequestParam("apellido") String nuevoApellido,
             @RequestParam("titulo") String nuevoTitulo,
             @RequestParam("acerca_de") String nuevoAcerca_de,
@@ -86,5 +81,5 @@ public Persona findPersona( ){
         persoServ.crearPersona(perso);
         //retorna la nueva persona
         return perso;
-    }*/
+    }
 }
