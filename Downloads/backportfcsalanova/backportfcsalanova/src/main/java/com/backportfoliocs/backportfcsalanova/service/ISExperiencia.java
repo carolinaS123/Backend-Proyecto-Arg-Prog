@@ -13,6 +13,9 @@ public interface ISExperiencia {
     //metodo para borrar una experiencia
     public void borrarExperiencia(Long id);
 
+    //metodo para editar una experiencia
+    public Experiencia editarExperiencia(Long id);
+    
     //metodo para encontrar una experiencia
     public Experiencia buscarExperiencia(Long id);
 }

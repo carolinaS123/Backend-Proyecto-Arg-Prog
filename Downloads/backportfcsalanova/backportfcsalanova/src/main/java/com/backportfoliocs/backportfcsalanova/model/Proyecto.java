@@ -21,17 +21,19 @@ public class Proyecto {
     private Long id;
 
     @NotNull
-    @Size(min = 1, max = 45, message = "No cumple con la longitud")
+    @Size(max = 60, message = "Longitud incorrecta")
     private String nombre_proy;
 
     @NotNull
-    @Size(min = 1, max = 200, message = "No cumple con la longitud")
+    @Size(max = 1000, message = "Longitud incorrecta")
     private String descripcion_proy;
 
     @NotNull
+    @Size(max = 30, message = "Longitud incorrecta")
     private String inicio_proy;
 
     @NotNull
+    @Size(max = 30, message = "Longitud incorrecta")
     private String fin_proy;
 
     @NotNull

@@ -1,5 +1,6 @@
 package com.backportfoliocs.backportfcsalanova.controller;
 
+import com.backportfoliocs.backportfcsalanova.dto.EducacionDto;
 import com.backportfoliocs.backportfcsalanova.model.Educacion;
 import com.backportfoliocs.backportfcsalanova.service.SEducacion;
 import java.util.List;
@@ -12,14 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("educaciones")
 @CrossOrigin(origins = "http://localhost:4200")
 public class CEducacion {
-        @Autowired
+    @Autowired
     private SEducacion educServ;
 
 /////////////////  Para ver todos los estudios ///////////////////
@@ -44,26 +44,18 @@ public class CEducacion {
     public Educacion buscarEducacion(@PathVariable Long id) {
         return educServ.buscarEducacion(id);
     }
-/////////////////  Para editar un estudio  ///////////////////
-    @PutMapping("/editar/{id}")
-    public Educacion editarEducacion(@PathVariable Long id,
-            @RequestParam("institucion") String nuevaInstitucion,
-            @RequestParam("titulacion") String nuevaTitulacion,
-            @RequestParam("inicio_edu") String nuevoInicio_edu,
-            @RequestParam("fin_edu") String nuevoFin_edu,
-            @RequestParam("descripcion_edu") String nuevaDescripcion_edu,
-            @RequestParam("personaId") Long nuevaPersonaId) {
-
-         //se busca el estudio 
-        Educacion edu = educServ.buscarEducacion(id);
-        edu.setInstitucion(nuevaInstitucion);
-        edu.setTitulacion(nuevaTitulacion);
-        edu.setInicio_edu(nuevoInicio_edu);
-        edu.setFin_edu(nuevoFin_edu);
-        edu.setDescripcion_edu(nuevaDescripcion_edu);
-        edu.setPersonaId(nuevaPersonaId);
+ /////////////////  Para editar un estudio  ///////////////////
+ @PutMapping("/editar/{id}")
+ public Educacion editarEducacion(@PathVariable("id") Long id,  @RequestBody EducacionDto eduDto)
+   {
+       Educacion edu = educServ.buscarEducacion(id);
+        edu.setInstitucion(eduDto.getInstitucion());
+        edu.setTitulacion(eduDto.getTitulacion());
+        edu.setInicio_edu(eduDto.getInicio_edu());
+        edu.setFin_edu(eduDto.getFin_edu());
+        edu.setDescripcion_edu(eduDto.getDescripcion_edu());
         educServ.crearEducacion(edu);
-        //retorna un nuevo estudio
         return edu;
-    }
+   }        
+
 }

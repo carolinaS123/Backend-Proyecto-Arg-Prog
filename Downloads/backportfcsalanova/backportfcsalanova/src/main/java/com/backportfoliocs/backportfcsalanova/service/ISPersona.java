@@ -12,6 +12,9 @@ public interface ISPersona {
 
     //metodo para borrar una persona
     public void borrarPersona(Long id);
+    
+    //metodo para editar persona
+    public Persona editarPersona(Long id);
 
     //metodo para encontrar una persona
     public Persona buscarPersona(Long id);

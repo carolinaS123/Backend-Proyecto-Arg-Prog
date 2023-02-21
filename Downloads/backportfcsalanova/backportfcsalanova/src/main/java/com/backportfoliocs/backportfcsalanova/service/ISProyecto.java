@@ -12,6 +12,9 @@ public interface ISProyecto {
 
     //metodo para borrar un proyecto
     public void borrarProyecto(Long id);
+    
+   //metodo para editar un proyecto
+    public Proyecto editarProyecto(Long id);
 
     //metodo para encontrar un proyecto
     public Proyecto buscarProyecto(Long id);

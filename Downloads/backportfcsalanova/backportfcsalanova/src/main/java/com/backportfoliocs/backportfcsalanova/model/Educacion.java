@@ -20,21 +20,23 @@ public class Educacion {
     private Long id;
 
     @NotNull
-    @Size(min = 1, max = 60, message = "No cumple con la longitud")
+    @Size(max = 60, message = "Longitud incorrecta")
     private String institucion;
 
     @NotNull
-    @Size(min = 1, max = 60, message = "No cumple con la longitud")
+    @Size(max = 60, message = "Longitud incorrecta")
     private String titulacion;
 
     @NotNull
+    @Size(max = 30, message = "Longitud incorrecta")
     private String inicio_edu;
 
     @NotNull
+    @Size(max = 30, message = "Longitud incorrecta")
     private String fin_edu;
 
     @NotNull
-    @Size(min = 1, max = 200, message = "No cumple con la longitud")
+    @Size(max = 1000, message = "Longitud incorrecta")
     private String descripcion_edu;
 
     //Con esto llama al dato que lo relaciona al objeto persona y lo va a traer con todos sus objetos relacionados 

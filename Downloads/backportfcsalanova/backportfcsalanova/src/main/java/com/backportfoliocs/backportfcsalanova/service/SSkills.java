@@ -32,7 +32,6 @@ public class SSkills implements ISSkills {
 
     @Override
     public Skills editarSkill(Long id) {
-        //terminar de hacer el metodo de editar
         Skills habil = rSkills.findById(id).orElse(null);
         return habil;
     }

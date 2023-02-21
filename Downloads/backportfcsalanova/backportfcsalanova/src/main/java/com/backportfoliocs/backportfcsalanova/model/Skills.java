@@ -10,10 +10,9 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter @Setter
+
+
 @Table
 @Entity
 public class Skills {
@@ -22,7 +21,7 @@ public class Skills {
     private Long id;
 
     @NotNull
-    @Size(min = 1, max = 30, message = "No cumple con la longitud")
+    @Size(max = 30, message = "Longitud incorrecta")
     private String skill;
 
     @NotNull
@@ -42,4 +41,37 @@ public class Skills {
         this.porcentaje = porcentaje;
         this.personaId = personaId;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+
+    public int getPorcentaje() {
+        return porcentaje;
+    }
+
+    public void setPorcentaje(int porcentaje) {
+        this.porcentaje = porcentaje;
+    }
+
+    public Long getPersonaId() {
+        return personaId;
+    }
+
+    public void setPersonaId(Long personaId) {
+        this.personaId = personaId;
+    }
+    
 }

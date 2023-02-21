@@ -25,40 +25,39 @@ public class Persona {
      private Long id;
     
      @NotNull
-    @Size(min = 1, max = 30, message = "No cumple con la longitud")
+    @Size(max = 60, message = "Longitud incorrecta")
     private String nombre;
 
     @NotNull
-    @Size(min = 1, max = 30, message = "No cumple con la longitud")
+    @Size(max = 60, message = "Longitud incorrecta")
     private String apellido;
 
     @NotNull
-    @Size(min = 1, max = 25, message = "No cumple con la longitud")
+    @Size(max = 60, message = "Longitud incorrecta")
     private String titulo;
 
     @NotNull
     @Lob//annotation q convierte un String en LONGTEXT    
-    @Column(length=3000)
     private String acerca_de;
 
     @NotNull
-    @Column(length=5000)
+    @Lob
     private String url_foto;
 
     @NotNull
-    @Column(length=5000)
+    @Lob
     private String url_banner;
 
     @NotNull
-    @Size(min = 1, max = 25, message = "No cumple con la longitud")
+    @Size(max = 30, message = "Longitud incorrecta")
     private String name_usuario;
 
     @NotNull
-    @Size(min = 5, max = 200, message = "No cumple con la longitud")
+    @Size(max = 500, message = "Longitud incorrecta")
     private String email;
 
     @NotNull
-    @Size(min = 3, max = 20, message = "No cumple con la longitud")
+    @Size(max = 25, message = "Longitud incorrecta")
     private String password;
     
     //////////relación con la tabla experiencias////////
@@ -96,6 +95,5 @@ public class Persona {
         skills = new ArrayList();
         proyectos = new ArrayList();
     }
-    
-    
+  
 }

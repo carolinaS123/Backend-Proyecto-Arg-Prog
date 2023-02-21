@@ -31,6 +31,12 @@ public class SProyecto implements ISProyecto {
     }
 
     @Override
+    public Proyecto editarProyecto(Long id) {
+        Proyecto proyec = rProyecto.findById(id).orElse(null);
+        return proyec;
+    }
+    
+    @Override
     public Proyecto buscarProyecto(Long id) {
         Proyecto proyec = rProyecto.findById(id).orElse(null);
         return proyec;

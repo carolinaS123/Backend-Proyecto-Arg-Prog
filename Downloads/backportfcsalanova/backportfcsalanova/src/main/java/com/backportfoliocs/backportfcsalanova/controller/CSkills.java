@@ -1,5 +1,6 @@
 package com.backportfoliocs.backportfcsalanova.controller;
 
+import com.backportfoliocs.backportfcsalanova.dto.SkillsDto;
 import com.backportfoliocs.backportfcsalanova.model.Skills;
 import com.backportfoliocs.backportfcsalanova.service.SSkills;
 import java.util.List;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -44,11 +44,20 @@ public class CSkills {
     public Skills  buscarSkill(@PathVariable Long id){
         return skillsServ.buscarSkill(id);
     }
-/////////////////  Para editar un skill  ///////////////////
-    @PutMapping("/editar/{id}")
-    public Skills editarSkill(@PathVariable Long id,
-            @RequestParam("skill") String nuevoSkill,
-            @RequestParam("porcentaje") int nuevoPorcentaje)
+ /////////////////  Para editar un skill  ///////////////////Este si funciona
+   @PutMapping("/editar/{id}")
+    public Skills editarSkill(@PathVariable("id") Long id, @RequestBody SkillsDto skillsDto)
+    {
+       Skills habil = skillsServ.buscarSkill(id);
+        habil.setSkill(skillsDto.getSkill());
+        habil.setPorcentaje(skillsDto.getPorcentaje());
+       skillsServ.crearSkill(habil);
+       return habil;
+    }
+    
+/////////////////  Para editar un skill  ///////////////////Este no funciona
+ /*   @PutMapping("/editar/{id}")
+    public Skills editarSkill(@PathVariable ("id") Long id, @RequestParam("skill") String nuevoSkill, @RequestParam("porcentaje") int nuevoPorcentaje)
     {
         //se busca el skill
         Skills habil = skillsServ.buscarSkill(id);
@@ -57,5 +66,5 @@ public class CSkills {
         skillsServ.crearSkill(habil);
         //retorna el nuevo skill
         return habil;
-    }
+    }*/
 }

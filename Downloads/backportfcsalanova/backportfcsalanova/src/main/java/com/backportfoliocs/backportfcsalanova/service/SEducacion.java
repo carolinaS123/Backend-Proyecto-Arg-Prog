@@ -31,10 +31,10 @@ public class SEducacion implements ISEducacion {
     }
      @Override
     public Educacion editarEducacion(Long id) {
-        //terminar de hacer el metodo de editar
-        Educacion habil = rEducacion.findById(id).orElse(null);
-        return habil;
+        Educacion edu = rEducacion.findById(id).orElse(null);
+        return edu;
     }
+    
     @Override
     public Educacion buscarEducacion(Long id) {
         Educacion edu = rEducacion.findById(id).orElse(null);

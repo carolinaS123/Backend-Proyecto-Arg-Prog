@@ -26,6 +26,12 @@ public class SExperiencia implements ISExperiencia{
     }
 
     @Override
+    public Experiencia editarExperiencia(Long id) {
+        Experiencia expe = rExperiencia.findById(id).orElse(null);
+        return expe;
+    }
+    
+    @Override
     public void borrarExperiencia(Long id) {
         rExperiencia.deleteById(id);
     }
